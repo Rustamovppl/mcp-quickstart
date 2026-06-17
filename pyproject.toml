@@ -14,5 +14,11 @@ dev = [
     "ruff>=0.6",
 ]
 
+# The package is a single module (server.py); test_server.py is not shipped.
+# Without this, setuptools' flat-layout autodiscovery sees two top-level modules
+# and refuses to build.
+[tool.setuptools]
+py-modules = ["server"]
+
 [tool.ruff]
 line-length = 100
